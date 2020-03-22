@@ -1,0 +1,696 @@
+@charset "UTF-8";
+/*!==================================
+	このCSSはSassで記述されていますので
+	直接編集しないで下さい！
+==================================*/
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+::after,
+::before {
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
+html {
+	-moz-tab-size: 4;
+	-webkit-tap-highlight-color: transparent;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	cursor: default;
+	line-height: 1.5;
+	tab-size: 4;
+	word-break: break-word;
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+ul ul {
+	margin: 0;
+}
+
+main {
+	display: block;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+a {
+	background-color: transparent;
+}
+
+small {
+	font-size: 80%;
+}
+
+img {
+	vertical-align: middle;
+}
+
+img {
+	border-style: none;
+}
+
+input {
+	margin: 0;
+}
+
+input {
+	overflow: visible;
+}
+
+textarea {
+	margin: 0;
+	overflow: auto;
+	resize: vertical;
+}
+
+[type=checkbox] {
+	padding: 0;
+}
+
+a,
+input,
+label,
+textarea {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+
+/*==================================
+  共通部分 - タイプセレクタ+見出し+hp-の指定。
+	必要なら、後述のcssで上書きしていく。
+===================================*/
+body {
+	background-color: #fff;
+	color: #333;
+	font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+	overflow-x: hidden;
+}
+
+section {
+	margin-bottom: 150px;
+}
+
+a {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+/*フルードイメージ化*/
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+/*見出し*/
+
+.el_heading {
+	letter-spacing: 0.8px;
+	line-height: 1.5;
+	white-space: nowrap;
+}
+
+.el_heading1 {
+	color: #fff;
+	font-family: Roboto;
+}
+
+.el_lv2Heading {
+	font-family: Roboto;
+	font-size: 2.25em;
+}
+
+.el_lv3Heading {
+	font-family: Noto Sans CJK JP;
+	font-size: 1.5em;
+	letter-spacing: 1.6px;
+	line-height: 3;
+	margin-bottom: 75px;
+}
+
+.el_heading3 {
+	letter-spacing: 0.16px;
+	line-height: 2.5;
+	margin-bottom: 34px;
+}
+
+.el_copy {
+	font-size: 0.875em;
+	letter-spacing: 0.8px;
+	line-height: 1.875;
+}
+
+/*hp-：ヘルパークラス*/
+.hp-reset {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.hp-m0a {
+	margin: 0 auto !important;
+}
+
+.hp-mtb0 {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+.hp-mb40 {
+	margin-bottom: 40px !important;
+}
+
+.hp-mb50 {
+	margin-bottom: 50px !important;
+}
+
+.hp-mb70 {
+	margin-bottom: 70px !important;
+}
+
+.hp-mb75 {
+	margin-bottom: 75px !important;
+}
+
+.hp-mr55 {
+	margin-right: 55px !important;
+}
+
+.hp-tac {
+	text-align: center !important;
+}
+
+/*position:fixed使用時、ページ内リンクのずれを解消*/
+.uq-anchor {
+	margin-top: -75px;
+	padding-top: 75px;
+}
+
+/*==================================
+  header - ページ共通
+===================================*/
+.ly_header {
+	background-color: #1b1310;
+	border-bottom: 2px solid #fff;
+	height: 75px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9;
+}
+
+.ly_header_inner {
+	-ms-flex-pack: justify;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-between;
+}
+
+.bl_header_gnav {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.el_header_tit {
+	color: #fff;
+	/*fs26px相当*/
+	font-size: 1.625em;
+}
+
+/*---------------------
+	ハンバーガーメニュー
+----------------------*/
+#nav-drawer {
+	position: relative;
+}
+
+.nav-unshown {
+	/*チェックボックス等は非表示に*/
+	display: none;
+}
+
+#nav-open {
+	/*アイコンのスペース*/
+	display: inline-block;
+	height: 22px;
+	vertical-align: middle;
+	width: 30px;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span,
+#nav-open span::before,
+#nav-open span::after {
+	background: #fff;
+	border-radius: 3px;
+	content: "";
+	cursor: pointer;
+	display: block;
+	/*線の太さ*/
+	height: 2px;
+	position: absolute;
+	/*長さ*/
+	width: 25px;
+}
+
+#nav-open span::before {
+	bottom: -8px;
+}
+
+#nav-open span::after {
+	bottom: -16px;
+}
+
+#nav-content {
+	background: #1b1310;
+	height: 100%;
+	left: 0;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	/*左に隠しておく*/
+	transform: translateX(-105%);
+	/*滑らかに表示*/
+	transition: 0.3s ease-in-out;
+	width: 100%;
+	z-index: 9999;
+}
+
+#nav-input:checked ~ #nav-content {
+	box-shadow: 6px 0 25px rgba(0, 0, 0, 0.15);
+	/*中身を表示（右へスライド）*/
+	transform: translateX(0%);
+}
+
+.el_hamburgerClose {
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	display: inline-block;
+	height: 25px;
+	margin: 30px 15px 0 calc(100% - 55px);
+	position: relative;
+	width: 25px;
+}
+
+.el_hamburgerClose span::before,
+.el_hamburgerClose span::after {
+	background: #fff;
+	content: "";
+	display: block;
+	height: 16%;
+	left: 50%;
+	margin: -8% 0 0 -42%;
+	position: absolute;
+	top: 50%;
+	width: 84%;
+}
+
+.el_hamburgerClose span::before {
+	transform: rotate(-45deg);
+}
+
+.el_hamburgerClose span::after {
+	transform: rotate(45deg);
+}
+
+.bl_hamburger {
+	-ms-flex-direction: column;
+	-ms-flex-pack: justify;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	height: calc(50vh - 55px);
+	justify-content: space-between;
+	margin: 25vh auto;
+	width: 50vw;
+}
+
+.el_hamburger_item {
+	font-size: 1em;
+}
+
+/*==================================
+  index - main
+===================================*/
+/*Wrapper*/
+.ly_body_inner {
+	/*headerのfix用*/
+	position: relative;
+}
+
+/*----------------------
+	mv
+-----------------------*/
+.ly_mv {
+	-ms-flex-pack: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: #1b1310;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+.ly_mv_titBox {
+	-ms-flex-pack: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border: 2px solid #fff;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+}
+
+/*----------------------
+	Service
+-----------------------*/
+
+/*----------------------
+	News
+-----------------------*/
+
+.bl_newsBox {
+	border: 1px solid #000;
+}
+
+.el_newsBox_img {
+	width: 100%;
+}
+
+.el_newsBox_copy {
+	padding: 1.625em 2em;
+}
+
+/*----------------------
+	contact
+-----------------------*/
+.ly_contact {
+	margin-bottom: 50px;
+}
+
+.el_inputPart {
+	border: 2px solid #333;
+	margin-bottom: 25px;
+	width: 100%;
+}
+
+.el_inputPart.el_inputPart__mb50 {
+	margin-bottom: 50px;
+}
+
+.el_btn {
+	background-color: #1b1310;
+	border-radius: 200px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+	color: #fff;
+	display: inline-block;
+	font-size: 1.125em;
+	font-weight: bold;
+	max-width: 100%;
+	padding: 20px 10px;
+	transition: 0.25s;
+	width: 200px;
+}
+
+.el_btn:focus,
+.el_btn:hover {
+	background-color: #fff;
+	color: #1b1310;
+}
+
+/*==================================
+  footer - ページ共通
+===================================*/
+.ly_footer {
+	-ms-flex-align: center;
+	-ms-flex-pack: center;
+	align-items: center;
+	background-color: #1b1310;
+	color: #fff;
+	display: -ms-flexbox;
+	display: flex;
+	height: 72px;
+	justify-content: center;
+	width: 100%;
+}
+
+/*==================================
+  メディアクエリ - ページ共通
+===================================*/
+
+@media screen and (max-width: 480px) {
+
+	.el_heading1 {
+		/*30px相当*/
+		font-size: 1.875em;
+		font-weight: medium;
+	}
+	/*スマートフォンの指定*/
+	.sp-hidden {
+		display: none !important;
+	}
+
+	.sp-mb55 {
+		margin-bottom: 55px !important;
+	}
+
+	.sp-mb75 {
+		margin-bottom: 75px !important;
+	}
+
+	.ly_header {
+		padding: 15px;
+	}
+
+	.ly_mv {
+		background: url(../img/fv-bgi_sp@2x.jpg) center center/cover no-repeat;
+		height: 100vh;
+		padding-top: 75px;
+		position: relative;
+	}
+
+	.ly_mv_titBox {
+		height: 100px;
+		/*41 / 375px*/
+		left: 10.933%;
+		position: absolute;
+		top: calc((100vh - 100px) / 2);
+		/*300px / 375px*/
+		width: 80%;
+	}
+
+	.ly_contentsWrapper {
+		padding: 0 15px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+	.el_heading1 {
+		/*50px相当*/
+		font-size: 3.125em;
+		font-weight: normal;
+	}
+
+	.tab-hidden {
+		display: none !important;
+	}
+
+	.ly_header {
+		/*120/1440*/
+		padding: 24px 8.33% 0;
+	}
+
+	.ly_mv {
+		background: url(../img/fv-bgi@2x.jpg) center center/cover no-repeat;
+		height: 0;
+		/* 表示画像の高さ ÷ 表示画像の幅 × 100 */
+		padding-top: calc(50% + (75px / 2));
+		position: static;
+		width: 100%;
+	}
+
+	.ly_mv_titBox {
+		height: 136px;
+		margin: -50% 30px 0 30px;
+		max-width: 450px;
+		padding: 0 16px;
+		position: static;
+		/*450/1440*/
+		width: 100%;
+	}
+
+	.ly_contentsWrapper {
+		margin: 0 auto;
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 769px) {
+
+	.el_heading1 {
+		/*50px相当*/
+		font-size: 3.125em;
+		font-weight: normal;
+	}
+	/*PCの指定*/
+	.pc-hidden {
+		display: none !important;
+	}
+
+	.pc-mtb0 {
+		margin-bottom: 0 !important;
+		margin-top: 0 !important;
+	}
+
+	.pc-mt0 {
+		margin-top: 0 !important;
+	}
+
+	.pc-mb50 {
+		margin-bottom: 50px !important;
+	}
+
+	.pc-mr35 {
+		margin-right: 35px !important;
+	}
+
+	.pc-mr70 {
+		margin-right: 70px !important;
+	}
+
+	.pc-mb70 {
+		margin-bottom: 70px !important;
+	}
+
+	.ly_header {
+		/*120/1440*/
+		padding: 24px 8.33% 0;
+	}
+
+	.ly_mv {
+		background: url(../img/fv-bgi@2x.jpg) center center/cover no-repeat;
+		height: 0;
+		/* 表示画像の高さ ÷ 表示画像の幅 × 100 */
+		padding-top: calc(50% + (75px / 2));
+		position: static;
+		width: 100%;
+	}
+
+	.ly_mv_titBox {
+		height: 136px;
+		margin: -50% 30px 0 30px;
+		max-width: 450px;
+		padding: 0 16px;
+		position: static;
+		/*450/1440*/
+		width: 100%;
+	}
+
+	.ly_contentsWrapper {
+		margin: 0 auto;
+		/*1030/1440*/
+		width: 71.5%;
+	}
+
+	.bl_service_container {
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.bl_service_copyContainer {
+		-ms-flex-order: 1;
+		height: 100%;
+		max-height: 240px;
+		order: 1;
+		padding: 25px 0 17px 0;
+	}
+
+	.bl_service_copyContainer.bl_service_copyContainer02 {
+		/*copyContainerの打ち消し*/
+		-ms-flex-order: -1;
+		order: -1;
+	}
+
+	.el_service_img {
+		height: 240px;
+		max-width: 480px;
+		min-width: 320px;
+		width: 100%;
+	}
+
+	.bl_newsContainer {
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.el_newsBox_img {
+		max-width: 320px;
+	}
+
+	.ly_contact {
+		margin: 0 auto;
+		/*700/1440*/
+		width: 48.6%;
+	}
+
+	.el_copyRights {
+		font-size: 0.875em;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	/*ブラウザのダークモードの指定*/
+	.dk-visible {
+		border: 1px solid #fff;
+	}
+
+	.bl_newsBox {
+		border: 1px solid #fff;
+	}
+
+	.el_newsBox_img {
+		border-bottom: 1px solid #fff;
+	}
+
+	body {
+		background-color: #1b1310;
+		color: #fff;
+		transition: 1s;
+	}
+
+	.el_inputPart,
+	.el_btn {
+		background-color: #ddd;
+		color: #000;
+		opacity: 0.875;
+	}
+
+	.el_btn:focus,
+	.el_btn:hover {
+		opacity: 0.25;
+	}
+}
