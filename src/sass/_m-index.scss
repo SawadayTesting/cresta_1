@@ -189,10 +189,9 @@
 	}
 	&_newsBox {
 		border: 1px solid #000;
-		@media screen and (max-width:#{$bp-sp}) { 
+		@media screen and (max-width:#{$bp-sp}) {
 			width: 100%;
 		}
-		
 		width: 28%;
 		@media (prefers-color-scheme: dark) {
 			border: 1px solid #fff;
