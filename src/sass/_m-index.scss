@@ -140,10 +140,12 @@
 	.bl_service {
 		&_container {
 			display: flex;
+			justify-content: space-evenly;
 		}
 		&_copyContainer {
 			height: 100%;
-			max-height: 240px;
+			max-width: 360px;
+			max-height: 280px;
 			order: 1;
 			padding: 25px 0 17px 0;
 		}
@@ -152,11 +154,14 @@
 			order: -1;
 		}
 	}
+	.el_service_copy {
+		flex: 1;
+	}
 	.el_service {
 		&_img {
 			width: 100%;
-			min-width: 320px;
-			max-width: 480px;
+			//min-width: 320px;
+			max-width: 360px;
 			height: 240px;
 		}
 	}
@@ -166,15 +171,29 @@
 -----------------------*/
 .bl {
 	&_newsContainer {
+		/*@media screen and (max-width:#{$bp-sp}) { 
+			display: block;
+		}*/
+		@media screen and(min-width:#{$bp-tab}) and (max-width:#{$bp-tabMx}) {
+			display: flex;
+			justify-content: space-evenly;
+		}
 		@media screen and(min-width:#{$bp-pc}) and (max-width:#{$bp-pcMx}) {
 			display: flex;
+			justify-content: space-evenly;
 		}
 		@media screen and (min-width:#{$bp-wpc}) {
 			display: flex;
+			justify-content: space-evenly;
 		}
 	}
 	&_newsBox {
 		border: 1px solid #000;
+		@media screen and (max-width:#{$bp-sp}) { 
+			width: 100%;
+		}
+		
+		width: 28%;
 		@media (prefers-color-scheme: dark) {
 			border: 1px solid #fff;
 		}
@@ -191,7 +210,7 @@
 				max-width: 320px;
 			}
 			@media screen and (min-width:#{$bp-wpc}) {
-				max-width: 320px;
+				width: 100%;
 			}
 		}
 		&_copy {
